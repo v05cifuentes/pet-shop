@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login-box">
+    <main class="form-signin">
+      <form #form="ngForm">
+        <img class="mb-2" src="../../../assets/img/Paws Whiskers_png.png" alt="" width="150" height="auto">
+        <h1 class="h3 fw-normal">Por favor inicia sesión</h1>
+        <div class="form-floating">
+          <label for="floatingInput">Correo electrónico</label>
+          <input type="email" class="form-control" id="floatingInput" [(ngModel)]="email" name="email">
+
+        </div>
+        <div class="form-floating my-3">
+          <label for="floatingPassword">Contraseña</label>
+          <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="clave" name="clave">
+          <div *ngIf="error">
+            <label class="text-danger" >Error en los datos</label>
+          </div>
+        </div>
+        <input class="w-100 btn btn-lg" type="button" value="Iniciar Sesión" (click)="consulta('', form)"/>
+        <div class="g-recaptcha mt-3" data-sitekey="6LcVuL4pAAAAAMdwbtAl0AsTMWPCIfT-osgRx9ME">
+        </div>
+      </form>
+    </main>
+  </div>
+</div>

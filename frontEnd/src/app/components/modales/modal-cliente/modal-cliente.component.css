@@ -1,0 +1,27 @@
+.custom-modal {
+  z-index: 1050;
+}
+
+.close-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #ea485f; /* Cambia el color al pasar el cursor o enfocar el botón */
+}
+
+.error-message {
+  size: 8px;
+  color: #ea485f;
+}
+
+.custom-save-btn {
+  background-color: #57c9bd;
+  color: white;
+}

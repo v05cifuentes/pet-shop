@@ -1,0 +1,98 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <a class="navbar-brand" href="#">
+      <img src="../../../assets/img/Paws Whiskers_png.png" width="auto" height="70" class="d-inline-block align-top" alt="Logo">
+  </a>
+  <button class="navbar-toggler custom-toggler" type="button" (click)="toggleMenu()">
+    <mat-icon>reorder</mat-icon>
+  </button>
+  <div class="collapse navbar-collapse" [class.show]="mostrarMenu">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <i class="nav-link">
+          <mat-icon>perm_identity</mat-icon>{{nombre}}
+        </i>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="cerrar()"><i class="fas fa-sign-out-alt"></i>
+          <mat-icon>power_settings_new</mat-icon> Cerrar Sesión
+        </a>
+      </li>
+      <li class="nav-item d-md-none">
+        <a class="nav-link active" [routerLink]="['/dashboard']">
+            <mat-icon>pets</mat-icon> Inicio
+        </a>
+      </li>
+      <li class="nav-item d-md-none">
+          <a class="nav-link" [routerLink]="['/clientes']">
+              <mat-icon>pets</mat-icon> Clientes
+          </a>
+      </li>
+      <li class="nav-item d-md-none">
+          <a class="nav-link" [routerLink]="['/mascotas']">
+              <mat-icon>pets</mat-icon>Mascotas
+          </a>
+      </li>
+      <li class="nav-item d-md-none">
+          <a class="nav-link" [routerLink]="['/citas']">
+              <mat-icon>pets</mat-icon>Citas
+          </a>
+      </li>
+      <li class="nav-item d-md-none" *ngIf="rol!=='usuario_normal'">
+          <a class="nav-link" [routerLink]="['/servicios']">
+              <mat-icon>pets</mat-icon>Servicios
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link d-md-none" [routerLink]="['/empleados']">
+              <mat-icon>pets</mat-icon>Empleados
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+      <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="sidebar-sticky">
+              <ul class="nav flex-column">
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/dashboard']">
+                          <mat-icon>pets</mat-icon> Inicio
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/clientes']">
+                          <mat-icon>pets</mat-icon> Clientes
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/mascotas']">
+                          <mat-icon>pets</mat-icon>Mascotas
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/citas']">
+                          <mat-icon>pets</mat-icon>Citas
+                      </a>
+                  </li>
+                  <li class="nav-item" *ngIf="rol!=='usuario_normal'">
+                      <a class="nav-link" [routerLink]="['/servicios']">
+                          <mat-icon>pets</mat-icon>Servicios
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/empleados']">
+                          <mat-icon>pets</mat-icon>Empleados
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="overflow-y: auto;">
+
+          <router-outlet></router-outlet>
+      </main>
+  </div>
+</div>

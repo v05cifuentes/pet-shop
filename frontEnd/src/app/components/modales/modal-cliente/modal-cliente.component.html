@@ -1,0 +1,61 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ data && data.cliente ? 'Editar Cliente' : 'Nuevo Cliente' }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <form id="cliente-form">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="obj_cliente.nombre" placeholder="Nombre">
+          <div *ngIf="mostrarErrorNombre" class="error-message">Insertar nombre</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="telefono">Teléfono:</label>
+          <input type="text" class="form-control" id="telefono" name="telefono" required [(ngModel)]="obj_cliente.telefono" placeholder="Teléfono">
+          <div *ngIf="mostrarErrorTelefono" class="error-message">Insertar teléfono</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="obj_cliente.email" placeholder="Email">
+          <div *ngIf="mostrarErrorEmail" class="error-message">Insertar email</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="direccion">Dirección:</label>
+          <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="obj_cliente.direccion" placeholder="Dirección">
+          <div *ngIf="mostrarErrorDireccion" class="error-message">Insertar dirección</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="notas">Notas:</label>
+          <textarea class="form-control" id="notas" name="notas" rows="3" [(ngModel)]="obj_cliente.notas" placeholder="Notas adicionales..."></textarea>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre_mascota">Mascota:</label>
+          <select class="form-control" [(ngModel)]="obj_cliente.id_mascota" name="mascota" *ngIf="!data">
+            <option >Seleccione mascota</option>
+            <option *ngFor="let mascota of mascotas" [value]="convertirANumero(mascota.id_mascota)">{{mascota.nombre_mascota}}</option>
+          </select>
+          <input type="text" class="form-control" id="nombre_mascota" name="nombre_mascota" [(ngModel)]="obj_cliente.nombre_mascota" placeholder="Nombre de la mascota" *ngIf="data && data.cliente">
+          <div *ngIf="mostrarErrorMascota" class="error-message">Seleccionar Mascota</div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn custom-save-btn" (click)="realizarAccion()">{{ obtenerTextoBoton() }}</button>
+      </div>
+    </div>
+  </form>
+</div>

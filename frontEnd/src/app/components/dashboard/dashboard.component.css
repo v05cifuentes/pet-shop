@@ -1,0 +1,19 @@
+.container {
+  margin-top: 116px;
+}
+
+h2 {
+  color: #007bff;
+}
+
+.custom-card-ventas {
+  background-color: #f04660;
+}
+
+.custom-card-agenda {
+  background-color: #57c9bd;
+}
+
+.custom-card-inventario {
+  background-color: #f28934;
+}

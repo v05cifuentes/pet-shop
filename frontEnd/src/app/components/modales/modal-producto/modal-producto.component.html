@@ -1,0 +1,44 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ data && data.producto ? 'Editar Producto' : 'Nuevo Producto' }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <form id="producto-form">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="obj_producto.nombre_producto" placeholder="Nombre del producto">
+          <div *ngIf="mostrarErrorNombre" class="error-message">Insertar nombre</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="precio">Precio Unitario:</label>
+          <input type="number" class="form-control" id="precio" name="precio" required [(ngModel)]="obj_producto.precio_unitario" placeholder="Precio unitario del producto">
+          <div *ngIf="mostrarErrorPrecio" class="error-message">Insertar precio unitario</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="cantidad">Cantidad en Stock:</label>
+          <input type="number" class="form-control" id="cantidad" name="cantidad" required [(ngModel)]="obj_producto.cantidad_stock" placeholder="Cantidad en stock del producto">
+          <div *ngIf="mostrarErrorCantidad" class="error-message">Insertar cantidad en stock</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea class="form-control" id="descripcion" name="descripcion" rows="3" [(ngModel)]="obj_producto.descripcion" placeholder="Descripción del producto" required></textarea>
+          <div *ngIf="mostrarErrorDescripcion" class="error-message">Insertar descripción</div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn custom-save-btn" (click)="realizarAccion()">{{ obtenerTextoBoton() }}</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ data && data.empleado ? 'Editar Empleado' : 'Nuevo Empleado' }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <form id="empleado-form">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="obj_empleado.nombre" placeholder="Nombre del empleado">
+          <div *ngIf="mostrarErrorNombre" class="error-message">Insertar nombre</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="cargo">Cargo:</label>
+          <input type="text" class="form-control" id="cargo" name="cargo" required [(ngModel)]="obj_empleado.cargo" placeholder="Cargo del empleado">
+          <div *ngIf="mostrarErrorCargo" class="error-message">Insertar cargo</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="horario">Horario:</label>
+          <input type="text" class="form-control" id="horario" name="horario" required [(ngModel)]="obj_empleado.horario" placeholder="Horario del empleado">
+          <div *ngIf="mostrarErrorHorario" class="error-message">Insertar horario</div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn custom-save-btn" (click)="realizarAccion()">{{ obtenerTextoBoton() }}</button>
+      </div>
+    </div>
+  </form>
+</div>

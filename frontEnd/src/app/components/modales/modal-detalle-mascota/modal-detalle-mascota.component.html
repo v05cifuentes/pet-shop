@@ -1,0 +1,27 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ obj_mascota.nombre_mascota }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <img src="{{ obj_mascota.foto }}" alt="Foto de la mascota" class="img-fluid">
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <p><strong>Raza:</strong> {{ obj_mascota.raza }}</p>
+        </div>
+        <div class="col-md-12">
+          <p><strong>Edad:</strong> {{ obj_mascota.edad }}</p>
+        </div>
+        <div class="col-md-12">
+          <p><strong>Género:</strong> {{ obj_mascota.genero }}</p>
+        </div>
+        <div class="col-md-12">
+          <p><strong>Notas:</strong> {{ obj_mascota.notas }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

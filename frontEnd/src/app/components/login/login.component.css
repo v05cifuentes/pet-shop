@@ -1,0 +1,52 @@
+.login-container {
+  background-image: url('../../../assets/img/background-login.jpg');
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-y: hidden; /* Deshabilita el desplazamiento vertical */
+}
+
+.login-box {
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin-top: -100px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin img.mb-2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-lg {
+  background-color: #57c9bd;
+  color: white;
+}

@@ -1,0 +1,80 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ data && data.cita ? 'Editar Cita' : 'Nueva Cita' }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <form id="cita-form">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_cliente">Cliente:</label>
+          <select class="form-control" [(ngModel)]="obj_citas.id_cliente" (change)="actualizarMascota()" name="clienteSelect" *ngIf="!data">
+              <option value="">Seleccione un cliente</option>
+              <option *ngFor="let cliente of clientes" [value]="cliente.id_cliente">{{cliente.nombre}}</option>
+          </select>
+          <input type="text"class="form-control" id="id_cliente" name="id_cliente" [(ngModel)]="obj_citas.nombre" *ngIf="data && data.cita">
+          <div *ngIf="mostrarErrorCliente" class="error-message">Insertar cliente</div>
+        </div>
+        <div class="form-group">
+          <label for="id_mascota">Mascota:</label>
+          <input type="text" class="form-control" id="id_mascota" name="id_mascota" required [(ngModel)]="obj_citas.nombre_mascota" readonly placeholder="Mascota">
+          <div *ngIf="mostrarErrorMascota" class="error-message">No se encontró una mascota asociada al cliente seleccionado</div>
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado:</label>
+          <select class="form-control" id="estado" name="estado" required [(ngModel)]="obj_citas.estado">
+            <option>Seleccione un estado</option>
+            <option id="Pendiente">Pendiente</option>
+            <option id="Confirmada">Confirmada</option>
+            <option id="Cancelada">Cancelada</option>
+          </select>
+          <div *ngIf="mostrarErrorEstado" class="error-message">Seleccionar estado</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fecha_hora">Fecha y Hora:</label>
+          <input type="datetime-local" class="form-control" id="fecha_hora" name="fecha_hora" required [(ngModel)]="obj_citas.fecha_hora" placeholder="fecha y hora">
+          <div *ngIf="mostrarErrorFecha" class="error-message">Seleccionar fecha y hora</div>
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio:</label>
+          <div class="scrollable-container">
+            <div class="service-list">
+              <div *ngFor="let servicio of servicios">
+                <label class="checkbox-item">
+                  <input type="checkbox" [value]="servicio" (change)="toggleServicio(servicio)">
+                  {{ servicio.nombre_servicio }} - {{ servicio.precio | currency }}
+                </label>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="mostrarErrorServicio" class="error-message">Seleccionar servicio</div>
+        </div>
+        <div>
+          <label><strong>Total: </strong></label>
+          <label> {{ obj_citas.total | customCurrency }}</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="notas">Notas:</label>
+          <textarea class="form-control" id="notas" name="notas" rows="3" [(ngModel)]="obj_citas.notas" placeholder="Observaciones.."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="btn custom-save-btn"(click)="realizarAccion()">{{ obtenerTextoBoton() }}</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+
+
+
+
+

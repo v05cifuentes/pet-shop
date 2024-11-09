@@ -1,0 +1,62 @@
+<div class="container my-2 custom-modal">
+  <div class="modal-header">
+    <h5>{{ data && data.mascota ? 'Editar Mascota' : 'Nuevo Mascota' }}</h5>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <form id="mascota-form">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="obj_mascota.nombre_mascota" placeholder="Nombre de la mascota">
+          <div *ngIf="mostrarErrorNombre" class="error-message">Insertar nombre</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="raza">Raza:</label>
+          <input type="text" class="form-control" id="raza" name="raza" required [(ngModel)]="obj_mascota.raza" placeholder="Raza de la mascota">
+          <div *ngIf="mostrarErrorRaza" class="error-message">Insertar raza</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" class="form-control" id="edad" name="edad" required [(ngModel)]="obj_mascota.edad" placeholder="Edad de la mascota">
+          <div *ngIf="mostrarErrorEdad" class="error-message">Insertar edad</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="genero">Género:</label>
+          <select class="form-control" id="genero" name="genero" required [(ngModel)]="obj_mascota.genero" *ngIf="!data">
+            <option value="macho">Macho</option>
+            <option value="hembra">Hembra</option>
+          </select>
+          <input type="text"class="form-control" id="genero" name="genero" [(ngModel)]="obj_mascota.genero" *ngIf="data && data.mascota">
+          <div *ngIf="mostrarErrorGenero" class="error-message">Seleccionar género</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="notas">Notas:</label>
+          <textarea class="form-control" id="notas" name="notas" rows="3" [(ngModel)]="obj_mascota.notas" placeholder="Notas sobre la mascota"></textarea>
+          <div *ngIf="mostrarErrorNotas" class="error-message">Insertar notas</div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="foto">Foto:</label>
+          <input type="file" name="foto" (change)="onFileSelected($event)" alife-file-to-base64 accept="image/png, image/jpeg">
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn custom-save-btn" (click)="realizarAccion()">{{ obtenerTextoBoton() }}</button>
+      </div>
+    </div>
+  </form>
+</div>
+

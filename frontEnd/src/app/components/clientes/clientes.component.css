@@ -1,0 +1,51 @@
+.container {
+  margin-top: 116px;
+}
+
+h2{
+  color: #007bff;
+}
+
+.table-container {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.custom-table {
+  background-color: transparent;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.custom-table th, .custom-table td {
+  padding: 8px;
+  white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
+}
+
+.custom-table th {
+  background-color: hsl(120, 14%, 99%);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.custom-new-btn {
+  background-color: #57c9bd;
+  color: white;
+}
+
+.custom-edit-btn {
+  background-color: #57c9bd;
+}
+
+.custom-delete-btn {
+  background-color: #ea485f;
+}
+
+.custom-icon{
+  color: white;
+}
+
+
+
+
